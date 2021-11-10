@@ -1,5 +1,5 @@
 const form = document.querySelector('.login-form');
-
+const submitBtnEl = document.querySelector('button')
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -11,10 +11,10 @@ form.addEventListener("submit", (event) => {
         email: form.email.value,
         password: form.password.value
     }
-    if (email.value === '' && password.value === '') {
+    if (email.value === '' || password.value === '') {
         alert("все поля должны быть заполнены"); 
     } else {
-    console.log(em);
+      console.log(em);
     form.reset();
   }
 });

@@ -17,18 +17,10 @@ const galleryListEl = document.querySelector('.gallery')
 galleryListEl.style.display = 'flex';
 galleryListEl.style.justifyContent = 'center';
 
-const itemEl = images.map(img => {
-  const item = document.createElement('li');
-  item.style.marginRight = '15px';
-  item.style.listStyle = 'none';
-  const itemImgEl = document.createElement('img');
-  itemImgEl.src = img.url;
-  itemImgEl.alt = img.alt;
-  itemImgEl.style.width = '200px';
-  itemImgEl.style.height = '130px';
-  item.append(itemImgEl);
+const itemEl = images.map(img => 
+  `<li style="margin-right: 15px; list-style: none;">
+     <img src="${img.url}" alt="${img.alt}" style="width: 200px; height: 130px;">
+   </li>`)
+   .join('');
 
-  return item;
-});
-
-galleryListEl.append(...itemEl);
+galleryListEl.insertAdjacentHTML("afterbegin", itemEl);
